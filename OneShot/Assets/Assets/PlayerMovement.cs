@@ -9,14 +9,14 @@ public class PlayerMovement : MonoBehaviour
 
     private float jump = 300;
 
-    public bool isJumping;
-
+    private int groundCount; // Number of ground contacts
     private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        groundCount = 0;
     }
 
     // Update is called once per frame
@@ -36,18 +36,18 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(speed * move, rb.velocity.y);
 
-        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && isJumping == false) // Jump with W or Space, only if grounded
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && groundCount > 0) // Jump with W or Space, only if grounded
         {
-            rb.AddForce(new Vector2 (rb.velocity.x, jump));
+            rb.AddForce(new Vector2(rb.velocity.x, jump));
             Debug.Log("jump");
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
-            isJumping = false;
+            groundCount++;
         }
     }
 
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            isJumping = true;
+            groundCount--;
         }
     }
 }
