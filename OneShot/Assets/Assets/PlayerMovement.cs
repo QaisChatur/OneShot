@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float jump = 300;
 
-    private int groundCount; // Number of ground contacts
+    public int groundCount; // Number of ground contacts
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
