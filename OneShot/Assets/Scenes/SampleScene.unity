@@ -297,7 +297,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.12, y: 0.87, z: 0}
-  m_LocalScale: {x: 1.2899, y: 1.2899, z: 1.2899}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  isJumping: 0
 --- !u!1 &1575608304
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ GameObject:
   - component: {fileID: 1575608307}
   m_Layer: 0
   m_Name: Terrain (16x16) 1_57
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -530,7 +531,7 @@ GameObject:
   - component: {fileID: 1984284258}
   m_Layer: 0
   m_Name: Terrain (16x16) 1_56
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,7 +661,7 @@ GameObject:
   - component: {fileID: 2002633101}
   m_Layer: 0
   m_Name: Terrain (16x16) 1_58
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
