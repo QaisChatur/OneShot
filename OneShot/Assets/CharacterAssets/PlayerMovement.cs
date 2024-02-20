@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private float move;
 
-    private float jump = 300;
+    public float jump;
 
     public int groundCount; // Number of ground contacts
     private Rigidbody2D rb;
@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && groundCount > 0) // Jump with W or Space, only if grounded
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
-            Debug.Log("jump");
         }
     }
 
