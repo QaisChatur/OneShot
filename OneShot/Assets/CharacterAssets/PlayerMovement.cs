@@ -43,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.x, jump));
         }
 
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Shoot();
+        }
+
         // Check if player falls below deathYLevel
         if (transform.position.y < -10f)
         {
@@ -58,12 +63,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnCollisionExit2D(Collision2D other) 
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             groundCount--;
         }
+    }
+
+    // Shoot for the shotgun
+    private void Shoot()
+    {
+
     }
 
     // Respawn the player at the respawn point
