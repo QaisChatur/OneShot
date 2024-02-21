@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public int groundCount; // Number of ground contacts
     private Rigidbody2D rb;
 
+    public Transform respawnPoint; // Respawn point
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
         }
+
+        // Check if player falls below deathYLevel
+        if (transform.position.y < -10f)
+        {
+            Respawn();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -56,5 +64,12 @@ public class PlayerMovement : MonoBehaviour
         {
             groundCount--;
         }
+    }
+
+    // Respawn the player at the respawn point
+    private void Respawn()
+    {
+        transform.position = respawnPoint.position;
+        rb.velocity = Vector2.zero; // Reset velocity
     }
 }
