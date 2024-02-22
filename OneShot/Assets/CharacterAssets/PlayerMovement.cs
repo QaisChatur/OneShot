@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private float move;
+    private bool m_FacingRight = true;
 
     public float jump;
 
@@ -27,13 +28,16 @@ public class PlayerMovement : MonoBehaviour
         move = Input.GetAxis("Horizontal");
 
         // Flip the character sprite if moving left
-        if (move < 0)
+        if (move < 0 && m_FacingRight == true)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Flip horizontally
+           Flip();
+           // transform.localScale = new Vector3(-1, 1, 1); // Flip horizontally
         }
-        else if (move > 0) // If moving right
+        else if (move > 0 && m_FacingRight == false) 
+         // If moving right
         {
-            transform.localScale = new Vector3(1, 1, 1); // Reset scale
+            Flip();
+           // transform.localScale = new Vector3(1, 1, 1); // Reset scale
         }
 
         rb.velocity = new Vector2(speed * move, rb.velocity.y);
@@ -43,17 +47,18 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.x, jump));
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Shoot();
-        }
-
         // Check if player falls below deathYLevel
         if (transform.position.y < -10f)
         {
             Respawn();
         }
     }
+    private void Flip(){
+        m_FacingRight = !m_FacingRight;
+
+        transform.Rotate (0f, 180, 0f);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -69,12 +74,6 @@ public class PlayerMovement : MonoBehaviour
         {
             groundCount--;
         }
-    }
-
-    // Shoot for the shotgun
-    private void Shoot()
-    {
-
     }
 
     // Respawn the player at the respawn point
