@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    private float vertical;
+    private float LadderSpeed = 8f;
+    private bool isLadder;
+    private bool isClimbing;
+
+
     public float speed;
     private float move;
     private bool m_FacingRight = true;
@@ -11,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float jump;
 
     public int groundCount; // Number of ground contacts
-    private Rigidbody2D rb;
+
+    [SerializeField] private Rigidbody2D rb;
 
     public Transform respawnPoint; // Respawn point
 
@@ -52,7 +60,46 @@ public class PlayerMovement : MonoBehaviour
         {
             Respawn();
         }
+
+        vertical = Input.GetAxis("Vertical");
+
+        if (isLadder && Mathf.Abs(vertical) > 0f)
+        {
+            isClimbing = true;
+        }
     }
+
+    private void FixedUpdate()
+    {
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, vertical * LadderSpeed);
+        }
+        else
+        {
+            rb.gravityScale = 4f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
+    }
+
+
     private void Flip(){
         m_FacingRight = !m_FacingRight;
 
