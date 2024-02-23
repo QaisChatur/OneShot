@@ -4,6 +4,8 @@ public class Health : MonoBehaviour
 {
     public int health;
     private int MAX_HEALTH;
+    public Weapon weapon;
+
 
     private void Start()
     {
@@ -69,5 +71,6 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        weapon.ammoCount++;
     }
 }

@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  weapon: {fileID: 1363164910}
 --- !u!50 &409674244
 Rigidbody2D:
   serializedVersion: 4
@@ -866,6 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  weapon: {fileID: 1363164910}
 --- !u!114 &460732541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,6 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1001127058}
   bulletPrefab: {fileID: 6937864508270484990, guid: 0eb2450edd2d446418b8099253e18e63, type: 3}
+  ammoCount: 1
 --- !u!114 &1363164911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,6 +1933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  weapon: {fileID: 0}
 --- !u!114 &1363164912
 MonoBehaviour:
   m_ObjectHideFlags: 0
