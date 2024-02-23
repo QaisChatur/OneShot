@@ -1,12 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 3;
+    private int health;
+    private int MAX_HEALTH;
 
-    private int MAX_HEALTH = 3;
+    private void Start()
+    {
+        // Initialization of health and maxHealth values
+        if (gameObject.CompareTag("EnemyType1")) // Assuming you have tags to differentiate between enemy types
+        {
+            health = 3; // Initial health for Enemy Type 1
+            MAX_HEALTH = 3;
+        }
+        else if (gameObject.CompareTag("EnemyType2"))
+        {
+            health = 4; // Initial health for Enemy Type 2
+            MAX_HEALTH = 4;
+        }
+        else
+        {
+            Debug.LogWarning("Unknown enemy type!");
+            health = 3; // Default to 3 health if the enemy type is unknown
+            MAX_HEALTH = 3;
+        }
+    }
+
+    public void SetHealth(int maxHealth, int health)
+    {
+        this.MAX_HEALTH = maxHealth;
+        this.health = health;
+    }
 
     public void Damage(int amount)
     {
@@ -15,7 +39,7 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
 
-        this.health -= amount;
+        health -= amount;
 
         if (health <= 0)
         {
@@ -34,11 +58,11 @@ public class Health : MonoBehaviour
 
         if (wouldBeOverMaxHealth)
         {
-            this.health = MAX_HEALTH;
+            health = MAX_HEALTH;
         }
         else
         {
-            this.health += amount;
+            health += amount;
         }
     }
 
