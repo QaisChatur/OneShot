@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int health;
+    public int health;
     private int MAX_HEALTH;
 
     private void Start()
@@ -18,10 +18,9 @@ public class Health : MonoBehaviour
             health = 4; // Initial health for Enemy Type 2
             MAX_HEALTH = 4;
         }
-        else
+        else if (gameObject.CompareTag("Player"))
         {
-            Debug.LogWarning("Unknown enemy type!");
-            health = 3; // Default to 3 health if the enemy type is unknown
+            health = 3; // Default to 3 health if the enemy type is the Player
             MAX_HEALTH = 3;
         }
     }
@@ -31,6 +30,7 @@ public class Health : MonoBehaviour
         this.MAX_HEALTH = maxHealth;
         this.health = health;
     }
+
 
     public void Damage(int amount)
     {
@@ -68,7 +68,6 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("I am Dead!");
         Destroy(gameObject);
     }
 }
