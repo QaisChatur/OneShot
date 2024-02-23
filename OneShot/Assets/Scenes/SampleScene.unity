@@ -436,13 +436,14 @@ GameObject:
   m_Component:
   - component: {fileID: 517275512}
   - component: {fileID: 517275513}
+  - component: {fileID: 517275514}
   m_Layer: 0
   m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &517275512
 Transform:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -502,14 +503,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.42124367, y: 0.5787568}
-      - {x: 0.02740717, y: 0.58311343}
-      - {x: -0.16252041, y: 0.25389647}
-      - {x: -0.33235556, y: 0.13788679}
-      - {x: -0.23236126, y: -0.15082419}
-      - {x: 0.41665614, y: -0.17715192}
-      - {x: 0.42450237, y: 0.16421455}
+    - - {x: 0.7, y: 0.7}
+      - {x: 0, y: 0.2}
+      - {x: 0.7, y: -0.3}
   m_UseDelaunayMesh: 0
+--- !u!114 &517275514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517275511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899394557c80c8147a3b813676c8c37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1044,7 @@ GameObject:
   - component: {fileID: 1363164909}
   - component: {fileID: 1363164910}
   - component: {fileID: 1363164911}
+  - component: {fileID: 1363164912}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1153,6 +1163,7 @@ MonoBehaviour:
   speed: 6
   jump: 660
   groundCount: 0
+  rb: {fileID: 1363164906}
   respawnPoint: {fileID: 619458556}
 --- !u!70 &1363164909
 CapsuleCollider2D:
@@ -1212,10 +1223,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1363164903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2bb7b84a4446541809c6f598223715, type: 3}
+  m_Script: {fileID: 11500000, guid: e37d46abcdc5edc4886c735cbd7cc1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1363164906}
+  health: 3
+--- !u!114 &1363164912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363164903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904542ce6f332cb49a7991ec5757ed75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1453051109
 GameObject:
   m_ObjectHideFlags: 0
