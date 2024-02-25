@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
 
     // Add an ammo count
-    public int ammoCount = 10; // Set this to your desired initial ammo count
+    public int ammoCount = 1; // Set this to your desired initial ammo count
 
     // Update is called once per frame
     void Update()
