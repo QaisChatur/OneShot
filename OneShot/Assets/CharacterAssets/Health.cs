@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -31,6 +32,29 @@ public class Health : MonoBehaviour
         this.health = health;
     }
 
+    private IEnumerator VisualIndicator(Color color)
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = color;
+            float elapsedTime = 0f;
+            float flashDuration = 0.15f;
+
+            while (elapsedTime < flashDuration && gameObject != null)
+            {
+                elapsedTime += Time.deltaTime;
+                yield return null; // Wait for the next frame
+            }
+
+            if (gameObject != null)
+            {
+                spriteRenderer.color = Color.white; // Reset color
+            }
+        }
+    }
+
+
 
     public void Damage(int amount)
     {
@@ -39,7 +63,8 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
 
-        health -= amount;
+        this.health -= amount;
+        StartCoroutine(VisualIndicator(Color.red));
 
         if (health <= 0)
         {
@@ -55,6 +80,7 @@ public class Health : MonoBehaviour
         }
 
         bool wouldBeOverMaxHealth = health + amount > MAX_HEALTH;
+        StartCoroutine(VisualIndicator(Color.green));
 
         if (wouldBeOverMaxHealth)
         {
