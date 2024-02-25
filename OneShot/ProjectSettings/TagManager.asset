@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Ladder
+  - EnemyType1
+  - EnemyType2
   layers:
   - Default
   - TransparentFX
