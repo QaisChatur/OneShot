@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
             if(collider.GetComponent<Health>() != null)
             {
                 collider.GetComponent<Health>().Damage(damage);
-                this.GetComponent<Health>().Damage(1000);
             }
         }
     }

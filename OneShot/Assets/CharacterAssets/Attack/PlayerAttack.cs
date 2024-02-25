@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private GameObject attackArea = default;
+    private SpriteRenderer playerSpriteRenderer; // Reference to the player's sprite renderer
 
     private bool attacking = false;
-
     private float timeToAttack = 0.25f;
     private float timer = 0f;
 
@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
+        playerSpriteRenderer = GetComponent<SpriteRenderer>(); // Get the player's sprite renderer component
     }
 
     // Update is called once per frame
@@ -34,8 +35,8 @@ public class PlayerAttack : MonoBehaviour
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(attacking);
+                ShowPlayerSprite(); // Show the player's sprite when the attack is finished
             }
-
         }
     }
 
@@ -43,5 +44,16 @@ public class PlayerAttack : MonoBehaviour
     {
         attacking = true;
         attackArea.SetActive(attacking);
+        HidePlayerSprite(); // Hide the player's sprite when attacking
+    }
+
+    private void HidePlayerSprite()
+    {
+        playerSpriteRenderer.enabled = false; // Hide the player's sprite
+    }
+
+    private void ShowPlayerSprite()
+    {
+        playerSpriteRenderer.enabled = true; // Show the player's sprite
     }
 }
