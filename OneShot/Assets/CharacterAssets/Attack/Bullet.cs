@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float speed = 20f;
     public Rigidbody2D rb;
 
@@ -21,9 +20,11 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.Damage(3);
+            if (enemy.IsDead()) // Check if the enemy is dead
+            {
+                GameObject.FindWithTag("Player").GetComponent<Shooting>().AllowShooting();
+            }
         }
         Destroy(gameObject);
-
     }
-
 }

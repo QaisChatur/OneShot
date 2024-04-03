@@ -68,4 +68,9 @@ public class Health : MonoBehaviour
             //weapon.ammoCount++;
         }
     }
+
+    public bool IsDead()
+    {
+        return health <= 0;
+    }
 }

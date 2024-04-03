@@ -206,7 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  weapon: {fileID: 0}
 --- !u!61 &1838010900818881048
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -13,7 +13,10 @@ public class AttackArea : MonoBehaviour
         if (health != null)
         {
             health.Damage(damage);
+            if (health.IsDead()) // Check if the enemy is dead after taking damage
+            {
+                GameObject.FindWithTag("Player").GetComponent<Shooting>().AllowShooting();
+            }
         }
     }
-
 }
