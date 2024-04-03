@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     public int health;
     private int MAX_HEALTH;
-    public Weapon weapon;
+    //public Weapon weapon;
 
 
     private void Start()
@@ -56,47 +56,16 @@ public class Health : MonoBehaviour
         }
     }
 
-
-
     public void Damage(int amount)
     {
-        if (amount < 0)
-        {
-            throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
-        }
 
         this.health -= amount;
         StartCoroutine(VisualIndicator(Color.red));
 
         if (health <= 0)
         {
-            Die();
+            Destroy(gameObject);
+            //weapon.ammoCount++;
         }
-    }
-
-    public void Heal(int amount)
-    {
-        if (amount < 0)
-        {
-            throw new System.ArgumentOutOfRangeException("Cannot have negative healing");
-        }
-
-        bool wouldBeOverMaxHealth = health + amount > MAX_HEALTH;
-        StartCoroutine(VisualIndicator(Color.green));
-
-        if (wouldBeOverMaxHealth)
-        {
-            health = MAX_HEALTH;
-        }
-        else
-        {
-            health += amount;
-        }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
-        weapon.ammoCount++;
     }
 }

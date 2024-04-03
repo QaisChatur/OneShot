@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
 
     private void SetEnemyValues()
     {
-        GetComponent<Health>().SetHealth(data.hp, data.hp);
         damage = data.damage;
         speed = data.speed;
     }
