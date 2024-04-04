@@ -5,9 +5,10 @@ using System;
 public class Health : MonoBehaviour
 {
     public int health;
-    private int MAX_HEALTH;
+    public int MAX_HEALTH;
     public static Action OnPlayerDeath;
     public static Action OnEnemyHealth;
+    public HealthBarScript healthBar;
     //public Weapon weapon;
 
 
@@ -28,6 +29,7 @@ public class Health : MonoBehaviour
         {
             health = 3; // Default to 3 health if the enemy type is the Player
             MAX_HEALTH = 3;
+            healthBar.SetMaxHealth(MAX_HEALTH);
         }
     }
 
@@ -64,6 +66,11 @@ public class Health : MonoBehaviour
 
         this.health -= amount;
         StartCoroutine(VisualIndicator(Color.red));
+
+        if (gameObject.CompareTag("Player"))
+        {
+            healthBar.SetBarHealth(health);
+        }
 
         if (health <= 0)
         {
