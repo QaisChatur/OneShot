@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
     public int health;
     private int MAX_HEALTH;
+    public static Action OnPlayerDeath;
+    public static Action OnEnemyHealth;
     //public Weapon weapon;
 
 
@@ -65,6 +68,15 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            if (this.CompareTag("Player"))
+            {
+                Time.timeScale = 0;
+                OnPlayerDeath?.Invoke();
+            }
+            else
+            {
+                OnEnemyHealth?.Invoke();
+            }
             //weapon.ammoCount++;
         }
     }
