@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ed926f0cd926db0489056454c3383802
+guid: 163de0492fa2d6e4e9f65aaa99eceff0
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - DOCALLISME ON STREET
+  - Heroes Legend
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
