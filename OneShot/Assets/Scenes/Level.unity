@@ -675,6 +675,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 1812911406059787745, guid: dc13d45437fa91e49b5d15f5abd81fb2, type: 3}
+  - {fileID: 9161899979048511114, guid: 2ff37477ed5bdfb4fb2240fe3a1f80bc, type: 3}
   canSpawn: 1
 --- !u!4 &296584064
 Transform:
@@ -983,6 +984,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 1812911406059787745, guid: dc13d45437fa91e49b5d15f5abd81fb2, type: 3}
+  - {fileID: 9161899979048511114, guid: 2ff37477ed5bdfb4fb2240fe3a1f80bc, type: 3}
   canSpawn: 1
 --- !u!4 &393303715
 Transform:
@@ -2053,6 +2055,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 1812911406059787745, guid: dc13d45437fa91e49b5d15f5abd81fb2, type: 3}
+  - {fileID: 9161899979048511114, guid: 2ff37477ed5bdfb4fb2240fe3a1f80bc, type: 3}
   canSpawn: 1
 --- !u!4 &552056269
 Transform:
@@ -3767,6 +3770,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 1812911406059787745, guid: dc13d45437fa91e49b5d15f5abd81fb2, type: 3}
+  - {fileID: 9161899979048511114, guid: 2ff37477ed5bdfb4fb2240fe3a1f80bc, type: 3}
   canSpawn: 1
 --- !u!4 &1035876485
 Transform:
@@ -3945,6 +3949,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 1812911406059787745, guid: dc13d45437fa91e49b5d15f5abd81fb2, type: 3}
+  - {fileID: 9161899979048511114, guid: 2ff37477ed5bdfb4fb2240fe3a1f80bc, type: 3}
   canSpawn: 1
 --- !u!4 &1160442903
 Transform:
@@ -3993,6 +3998,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 1812911406059787745, guid: dc13d45437fa91e49b5d15f5abd81fb2, type: 3}
+  - {fileID: 9161899979048511114, guid: 2ff37477ed5bdfb4fb2240fe3a1f80bc, type: 3}
   canSpawn: 1
 --- !u!4 &1192060512
 Transform:
@@ -5991,6 +5997,7 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefab:
   - {fileID: 1812911406059787745, guid: dc13d45437fa91e49b5d15f5abd81fb2, type: 3}
+  - {fileID: 9161899979048511114, guid: 2ff37477ed5bdfb4fb2240fe3a1f80bc, type: 3}
   canSpawn: 1
 --- !u!4 &1974746340
 Transform:
